@@ -1,0 +1,16 @@
+[Unit]
+Description=Kungfu Master Trading System Daemon
+After=syslog.target
+
+[Service]
+Type=forking
+EnvironmentFile=-/usr/local/etc/sysconfig/kungfu
+ExecStart=/usr/bin/supervisord -c /usr/local/etc/supervisor/supervisord.conf
+ExecReload=/usr/bin/supervisorctl -c /usr/local/etc/supervisor/supervisord.conf reload
+ExecStop=/usr/bin/supervisorctl -c /usr/local/etc/supervisor/supervisord.conf shutdown
+LimitDATA=infinity
+LimitSTACK=infinity
+LimitMEMLOCK=infinity
+
+[Install]
+WantedBy=multi-user.target
