@@ -15,25 +15,29 @@ limitations under the License.
 '''
 
 import signal, json
-from kungfu.longfist.longfist_utils import _byteify as _byteify
+from ..longfist.longfist_utils import _byteify as _byteify
 
 def register_exit_handler(engine, name, tp):
     def exit_handler(*args):
-        print 'stop engine: {}_{}'.format(tp, name)
+        print('stop engine: {}_{}'.format(tp, name))
         engine.stop()
     signal.signal(signal.SIGTERM, exit_handler)
 
 class Engine(object):
 
-    account_file = '/opt/kungfu/master/etc/kungfu/kungfu.json'
+    account_file = '/usr/local/etc/kungfu/kungfu.json'
 
     def __init__(self, name, tp):
         lib_name = 'lib{}{}'.format(name, tp)
         lib = None
         try:
-            lib = __import__(lib_name)
+            # import importlib
+            # lib = importlib.import_module('.%s' % lib_name)
+            # lib = __import__('kungfu.wingchun.%s' % lib_name)
+            import importlib
+            lib = importlib.import_module('kungfu.wingchun.%s' % lib_name)
         except:
-            print 'Unexpected lib is imported', lib_name
+            print('Unexpected lib is imported', lib_name)
             exit(1)
 
         globals()[lib_name] = lib
@@ -47,8 +51,8 @@ class Engine(object):
             # then simply dump to str and will init
             self.info = json.dumps(json_info)
         except Exception as e:
-            print 'Cannot find related account info: ', tp, name, ' in ', self.account_file
-            print e
+            print('Cannot find related account info: ', tp, name, ' in ', self.account_file)
+            print(e)
             exit(1)
 
     def start(self):

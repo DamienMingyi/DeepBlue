@@ -87,8 +87,8 @@ SET(CPACK_RPM_PACKAGE_REQUIRES "rfoo >= 1.3.1, pid >= 2.1.1, log4cplus2 == 2.0.0
 
 INSTALL(DIRECTORY "python/" DESTINATION "/home/daiab/miniconda3/lib/python3.6/site-packages")
 #INSTALL(DIRECTORY "${BOOST_LIBRARYDIR}/" DESTINATION "lib/boost")
-INSTALL(DIRECTORY "rpm/bin/" DESTINATION "bin")
-INSTALL(DIRECTORY "rpm/etc/" DESTINATION "etc")
+INSTALL(DIRECTORY "rpm/bin/" DESTINATION "/usr/local/bin")
+INSTALL(DIRECTORY "rpm/etc/" DESTINATION "/usr/local/etc")
 
 SET(CPACK_RPM_PACKAGE_AUTOREQ " no")
 INCLUDE(CPack)

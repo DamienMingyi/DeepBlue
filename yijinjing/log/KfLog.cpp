@@ -29,7 +29,7 @@
 #include <fstream>
 #include <unistd.h>
 
-#define LOG_CONFIGURATION_FOLDER "/opt/kungfu/master/etc/log4cplus/"
+#define LOG_CONFIGURATION_FOLDER "/usr/local/etc/log4cplus/"
 #define LOG_CONFIGURATION_BASIC_FILENAME "default.properties"
 #define LOG_CONFIGURATION_STRATEGY_PATTERN_FILENAME "strategy.pattern"
 #define LOG_CONFIGURATION_BASIC_FILE LOG_CONFIGURATION_FOLDER LOG_CONFIGURATION_BASIC_FILENAME

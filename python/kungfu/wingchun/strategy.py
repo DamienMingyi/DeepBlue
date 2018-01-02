@@ -15,13 +15,13 @@ limitations under the License.
 '''
 
 import os, sys, importlib, ctypes
-import kungfu.longfist.longfist_constants as lf
-import kungfu.longfist.longfist_structs as structs
+from ..longfist import longfist_constants as lf
+from ..longfist import longfist_structs as structs
 from functools import partial
-import libwingchunstrategy
-from wc_configs import context
-from wc_configs import context_usage
-from constants import ORDER_STATUS
+from . import libwingchunstrategy
+from .wc_configs import context
+from .wc_configs import context_usage
+from .constants import ORDER_STATUS
 
 class Strategy:
 
