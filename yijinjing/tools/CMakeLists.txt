@@ -17,6 +17,8 @@ PROJECT(tools)
 
 ADD_EXECUTABLE(journal_tool JournalTool.cpp)
 TARGET_LINK_LIBRARIES(journal_tool journal ${PYTHON_LIBRARIES})
+ADD_EXECUTABLE(journal_tool_test JournalToolTest.cpp)
+TARGET_LINK_LIBRARIES(journal_tool_test journal ${PYTHON_LIBRARIES})
 file(COPY journal_dumper DESTINATION .)
 
 INSTALL(TARGETS journal_tool DESTINATION "bin")
