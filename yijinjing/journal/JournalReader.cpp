@@ -28,6 +28,7 @@
 #include "Timer.h"
 #include <sstream>
 #include <assert.h>
+#include <iostream>
 
 USING_YJJ_NAMESPACE
 
@@ -113,7 +114,10 @@ JournalReaderPtr JournalReader::createReaderWithSys(const vector<string>& dirs,
 
 JournalReaderPtr JournalReader::createSysReader(const string& clientName)
 {
-    return JournalReader::create(PAGED_JOURNAL_FOLDER, PAGED_JOURNAL_NAME, getNanoTime(), clientName);
+    std::cout << "JournalReader::create in: " << PAGED_JOURNAL_FOLDER
+              << " name: " << PAGED_JOURNAL_NAME << std::endl;
+    long nanoTime = getNanoTime();
+    return JournalReader::create(PAGED_JOURNAL_FOLDER, PAGED_JOURNAL_NAME, nanoTime, clientName);
 }
 
 JournalReaderPtr JournalReader::createRevisableReader(const string& readerName)

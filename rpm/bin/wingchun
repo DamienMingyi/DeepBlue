@@ -100,7 +100,7 @@ The most commonly used wingchun commands are:
         if len(sys.argv) >= 3:
             os.system(os.environ["WINGCHUN_HOME"] + '/bin/wc_printer ' + ' '.join(sys.argv[2:]))
         else:
-            files = os.listdir('/shared/kungfu/journal/user')
+            files = os.listdir('/opt/kungfu/journal/user')
             strs = {}
             for fn in files:
                 ss = fn.split('.')

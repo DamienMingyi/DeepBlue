@@ -45,7 +45,7 @@ typedef unsigned char byte;
 typedef unsigned int uint;
 typedef std::pair<int, int> IntPair;
 
-#define KUNGFU_FOLDER "/shared/kungfu/"                 /**< base folder of kungfu system */
+#define KUNGFU_FOLDER "/opt/kungfu/"                 /**< base folder of kungfu system */
 #define KUNGFU_JOURNAL_FOLDER KUNGFU_FOLDER "journal/"  /**< where we put journal files */
 #define KUNGFU_SOCKET_FOLDER KUNGFU_FOLDER "socket/"    /**< where we put socket files */
 #define KUNGFU_LOG_FOLDER KUNGFU_FOLDER "log/"          /**< where we put log files */

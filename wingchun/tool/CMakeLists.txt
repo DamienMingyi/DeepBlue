@@ -21,7 +21,7 @@ INSTALL(TARGETS ${PROJECT_NAME} DESTINATION "lib/wingchun")
 
 ADD_EXECUTABLE(wc_printer wc_strategy_data_printer.cpp)
 TARGET_LINK_LIBRARIES(wc_printer ${PROJECT_NAME} journal ${Boost_LIBRARIES})
-TARGET_LINK_LIBRARIES(wc_printer ${PYTHON_LIBRARY}/libpython3.6m.so)
+#TARGET_LINK_LIBRARIES(wc_printer ${PYTHON_LIBRARY}/libpython3.6m.so)
 INSTALL(TARGETS wc_printer DESTINATION "bin")
 
 ADD_EXECUTABLE(td_pos_tool td_pos_tool.cpp ../base/TDUserStruct.cpp ../base/TDUserStruct.h)

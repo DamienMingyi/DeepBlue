@@ -36,7 +36,7 @@ class Strategy:
         self.setup_functions()
 
     def get_module(self, file_name):
-        tmp_folder = '/shared/kungfu/runtime/'
+        tmp_folder = '/opt/kungfu/runtime/'
         module_name = os.path.splitext(os.path.basename(file_name))[0] + '_kungfu'
         fout = open('{}{}.py'.format(tmp_folder, module_name), 'w')
         fout.write('''from kungfu.wingchun.constants import *\n''')

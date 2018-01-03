@@ -32,5 +32,5 @@ class UnixStreamTransport(xmlrpclib.Transport, object):
         return UnixStreamHTTPConnection(self.socket_path)
 
 
-server = xmlrpclib.Server('http://arg_unused', transport=UnixStreamTransport("/shared/kungfu/socket/supervisor.sock"))
+server = xmlrpclib.Server('http://arg_unused', transport=UnixStreamTransport("/opt/kungfu/socket/supervisor.sock"))
 print(server.supervisor.getState())
