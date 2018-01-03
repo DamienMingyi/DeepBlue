@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 '''
@@ -27,7 +27,7 @@ format_d_str = format_str.replace('%', '&')
 def nanofstr(time_str, time_format=format_str):
     import datetime, time
     dt = datetime.datetime.strptime(time_str, time_format)
-    return long(time.mktime(dt.timetuple()) * 1e9)
+    return int(time.mktime(dt.timetuple()) * 1e9)
 
 def strfnano(nano, time_format=format_str):
     import datetime
@@ -58,12 +58,12 @@ def dump_csv(csv_file, folders, names, t_msg_type, start_nano, end_nano, visuali
                 headers = map(lambda x:'{}({})'.format(x[0], x[1]), row)
                 csv_writer.writerow(headers)
                 if to_print:
-                    print ','.join(headers)
+                    print(','.join(headers))
                 header_printed = True
             contents = map(lambda x: str(x[2]), row)
             csv_writer.writerow(contents)
             if to_print:
-                print ','.join(contents)
+                print(','.join(contents))
         frame = reader.next()
         name = reader.name()
 
@@ -81,23 +81,23 @@ if __name__ == '__main__':
     args = parser.parse_args()
     ready_to_dump = True
     if len(args.folder) == 0:
-        print 'folder (-f) need to be specified'
+        print('folder (-f) need to be specified')
         ready_to_dump = False
     if len(args.name) == 0:
-        print 'name (-n) need to be specified'
+        print('name (-n) need to be specified')
         ready_to_dump = False
     if args.msg_type == 0:
-        print 'msg_type (-m) need to be specified'
+        print('msg_type (-m) need to be specified')
         ready_to_dump = False
     if len(args.output) == 0:
-        print 'output (-o) need to be specified'
+        print('output (-o) need to be specified')
         ready_to_dump = False
         
     if ready_to_dump:
-        print 'dumping: '
-        print 'folder', args.folder
-        print 'name', args.name
-        print 'msg_type', args.msg_type
-        print 'start', args.start
-        print 'end', args.end
+        print('dumping: ')
+        print('folder', args.folder)
+        print('name', args.name)
+        print('msg_type', args.msg_type)
+        print('start', args.start)
+        print('end', args.end)
         dump_csv(args.output, [args.folder], [args.name], args.msg_type, nanofstr(args.start), nanofstr(args.end), args.visualize > 0, args.print_out > 0)

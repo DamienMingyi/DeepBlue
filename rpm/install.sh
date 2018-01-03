@@ -2,13 +2,13 @@
 # sudo make install
 
 sudo mkdir -p /opt/kungfu
-pushd /opt/kungfu
-sudo chown -R daiab:daiab ./
-popd
+sudo chown -R daiab:daiab /opt/kungfu
 mkdir -p /opt/kungfu/log \
 /opt/kungfu/journal \
 /opt/kungfu/journal/system \
 /opt/kungfu/socket \
+/opt/kungfu/runtime \
+/opt/kungfu/log/supervisor \
 /opt/kungfu/journal/MD/CTP \
 /opt/kungfu/journal/MD/CTP/ \
 /opt/kungfu/journal/MD/XTP/ \
@@ -42,7 +42,7 @@ mkdir -p /opt/kungfu/log \
 pushd /usr/local/bin/
 sudo chmod +x  wingchun yjj kungfuctl journal_dumper
 popd
-sudo cp /usr/local/lib/wingchun/* /home/daiab/miniconda3/lib/python3.6/site-packages/kungfu/wingchun/
+sudo cp /usr/local/lib/wingchun/* /usr/local/lib/python3.5/dist-packages/kungfu/wingchun/
 
 
 # sudo cat > /etc/ld.so.conf.d/ctp.conf <<EOF

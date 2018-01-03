@@ -1,0 +1,2 @@
+sudo cp etc/systemd/user/kungfu.service /etc/systemd/
+sudo systemctl enable /etc/systemd/kungfu.service

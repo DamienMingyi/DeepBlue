@@ -54,10 +54,10 @@ INCLUDE_DIRECTORIES(${BOOST_INCLUDEDIR})
 #INCLUDE_DIRECTORIES(${PYTHON_INCLUDE_PATH})
 
 set(PYTHON_INCLUDE_DIR /home/daiab/miniconda3/include/python3.6m)
-set(PYTHON_LIBRARY /home/daiab/miniconda3/lib)
+set(PYTHON_LIBRARY /usr/lib/python3.5)
 include_directories(${PYTHON_INCLUDE_DIR})
 # LINK_DIRECTORIES(${PYTHON_LIBRARY})
-set(PYTHON_LIBRARIES ${PYTHON_LIBRARY}/libpython3.6m.so)
+set(PYTHON_LIBRARIES ${PYTHON_LIBRARY}/config-3.5m-x86_64-linux-gnu/libpython3.5.so)
 
 LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/longfist/api/ctp/v6.3.6_20160606/lib)
 LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/longfist/api/xtp/XTP_API_20171115_1.1.16.9/lib)
@@ -85,7 +85,7 @@ SET(CPACK_RPM_POST_UNINSTALL_SCRIPT_FILE "${CMAKE_CURRENT_SOURCE_DIR}/rpm/script
 
 SET(CPACK_RPM_PACKAGE_REQUIRES "rfoo >= 1.3.1, pid >= 2.1.1, log4cplus2 == 2.0.0_RC1, supervisor >= 3.1.0")
 
-INSTALL(DIRECTORY "python/" DESTINATION "/home/daiab/miniconda3/lib/python3.6/site-packages")
+INSTALL(DIRECTORY "python/" DESTINATION "/usr/local/lib/python3.5/dist-packages/")
 #INSTALL(DIRECTORY "${BOOST_LIBRARYDIR}/" DESTINATION "lib/boost")
 INSTALL(DIRECTORY "rpm/bin/" DESTINATION "/usr/local/bin")
 INSTALL(DIRECTORY "rpm/etc/" DESTINATION "/usr/local/etc")

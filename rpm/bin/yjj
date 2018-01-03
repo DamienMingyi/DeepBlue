@@ -1,4 +1,4 @@
-#!/home/daiab/miniconda3/bin/python3 -u
+#!/usr/bin/python3 -u
 
 '''
 Copyright [2017] [taurus.ai]
@@ -39,7 +39,7 @@ rconsole_sock = '/opt/kungfu/socket/paged_rconsole.sock'
 
 def setup_environment_variables():
     os.environ["KUNGFU_HOME"] = "/opt/kungfu"
-    os.environ["YJJ_HOME"] = "/opt/kungfu/master"
+    os.environ["YJJ_HOME"] = "/usr/local/"
     os.environ["KUNGFU_MAIN"] = "/opt/kungfu/master/bin/yjj"
     os.environ["BOOST_SO_LIB"] = os.environ["YJJ_HOME"] + "/lib/boost"
     os.environ["YJJ_SO_LIB"] = os.environ["YJJ_HOME"] + "/lib/yijinjing"

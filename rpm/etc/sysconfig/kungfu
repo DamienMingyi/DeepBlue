@@ -1,7 +1,7 @@
 KUNGFU_HOME=/opt/kungfu
 YJJ_HOME=/opt/kungfu/master
 LONGFIST_HOME=/opt/kungfu/master
-WINGCHUN_HOME=/opt/kungfu/master
+WINGCHUN_HOME=/usr/local
 JAVA_HOME=/usr/lib/jvm/java-1.8.0
 BOOST_LIB=/opt/kungfu/master/lib/boost
 YJJ_LIB=/opt/kungfu/master/lib/yijinjing
