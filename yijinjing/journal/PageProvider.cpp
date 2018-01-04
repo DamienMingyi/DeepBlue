@@ -41,7 +41,6 @@ void getSocketRsp(SocketMArray &input, SocketMArray &output)
     using namespace boost::asio;
     io_service io_service;
     local::stream_protocol::socket socket(io_service);
-    std::cout << "PAGED_SOCKET_FILE: " << PAGED_SOCKET_FILE << std::endl;
     socket.connect(local::stream_protocol::endpoint(PAGED_SOCKET_FILE));
     boost::system::error_code error;
     write(socket, buffer(input), error);

@@ -28,10 +28,10 @@ endforeach()
 
 ############################################################
 
-INSTALL(DIRECTORY longfist DESTINATION "include")
+INSTALL(DIRECTORY longfist DESTINATION "/usr/include")
 
-INSTALL(DIRECTORY api/ctp/${CTP_VERSION}/include/ DESTINATION "include/ctp")
-INSTALL(DIRECTORY api/ctp/${CTP_VERSION}/lib/ DESTINATION "lib64/api")
+INSTALL(DIRECTORY api/ctp/${CTP_VERSION}/include/ DESTINATION "/usr/include/ctp")
+INSTALL(DIRECTORY api/ctp/${CTP_VERSION}/lib/ DESTINATION "/usr/lib/ctp")
 
-INSTALL(DIRECTORY api/xtp/${XTP_VERSION}/include/ DESTINATION "include/xtp")
-INSTALL(DIRECTORY api/xtp/${XTP_VERSION}/lib/ DESTINATION "lib64/api")
+INSTALL(DIRECTORY api/xtp/${XTP_VERSION}/include/ DESTINATION "/usr/include/xtp")
+INSTALL(DIRECTORY api/xtp/${XTP_VERSION}/lib/ DESTINATION "/usr/lib/xtp")

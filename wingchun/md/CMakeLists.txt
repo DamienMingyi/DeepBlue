@@ -20,6 +20,9 @@ ADD_LIBRARY(ctpmd SHARED ${CTP_SOURCE_FILES})
 TARGET_LINK_LIBRARIES(ctpmd journal kflog thostmduserapi ${Boost_LIBRARIES})
 INSTALL(TARGETS ctpmd DESTINATION "lib/wingchun")
 
+ADD_EXECUTABLE(md_engine_test  MDEngineCTPTest.cpp)
+TARGET_LINK_LIBRARIES(md_engine_test ctpmd journal kflog thostmduserapi ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+
 SET(XTP_SOURCE_FILES MDEngineXTP.cpp MDEngineXTP.h IMDEngine.cpp IMDEngine.h ../base/IEngine.cpp ../base/IEngine.h)
 ADD_LIBRARY(xtpmd SHARED ${XTP_SOURCE_FILES})
 TARGET_LINK_LIBRARIES(xtpmd journal kflog xtpquoteapi ${Boost_LIBRARIES})

@@ -6,6 +6,8 @@ sudo chown -R daiab:daiab /opt/kungfu
 mkdir -p /opt/kungfu/log \
 /opt/kungfu/journal \
 /opt/kungfu/journal/system \
+/opt/kungfu/journal/user \
+/opt/kungfu/journal/strategy \
 /opt/kungfu/socket \
 /opt/kungfu/runtime \
 /opt/kungfu/log/supervisor \

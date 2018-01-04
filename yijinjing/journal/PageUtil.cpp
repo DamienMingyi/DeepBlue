@@ -111,7 +111,7 @@ void* PageUtil::LoadPageBuffer(const string& path, int size, bool isWriting, boo
     {
         if (!isWriting)
             return nullptr;
-        perror("Cannot create/write the file");
+        perror(("Cannot create/write the file: " + path).c_str());
         exit(EXIT_FAILURE);
     }
 

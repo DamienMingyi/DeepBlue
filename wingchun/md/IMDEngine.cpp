@@ -94,6 +94,7 @@ void IMDEngine::listening()
                         {
                             if (is_logged_in())
                             {
+                                std::cout << "@@@@@@@@@@@msg_type: " << msg_type << std::endl;
                                 if (msg_type == MSG_TYPE_SUBSCRIBE_MARKET_DATA)
                                 {
                                     subscribeMarketData(subs_tickers, subs_markets);
@@ -202,11 +203,13 @@ void IMDEngine::on_market_data(const LFMarketDataField* data)
     if (isRunning)
     {
         writer->write_frame(data, sizeof(LFMarketDataField), source_id, MSG_TYPE_LF_MD, 1/*islast*/, -1/*invalidRid*/);
-        KF_LOG_DEBUG_FMT(logger, "%-10s[%7.1f, %4d | %7.1f, %4d]",
+        KF_LOG_DEBUG_FMT(logger, "on_market_data: %-10s[%7.1f, %4d | %7.1f, %4d]",
                          data->InstrumentID,
                          data->BidPrice1,
                          data->BidVolume1,
                          data->AskPrice1,
                          data->AskVolume1);
+    } else {
+        KF_LOG_ERROR(logger, "on_market_data but not running");
     }
 }
