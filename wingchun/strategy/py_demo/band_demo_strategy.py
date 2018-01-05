@@ -24,7 +24,7 @@ by: xcao, qliu, cjiang
 '''
 
 SOURCE_INDEX = SOURCE.CTP
-M_TICKER = 'rb1801'
+M_TICKER = b'rb1805'
 M_EXCHANGE = EXCHANGE.SHFE
 TRADED_VOLUME_LIMIT = 500
 
@@ -52,6 +52,7 @@ initialization,
     [necessary]
 '''
 def initialize(context):
+    print('initialize')
     context.add_md(source=SOURCE_INDEX)
     context.add_td(source=SOURCE_INDEX)
     context.subscribe([M_TICKER], source=SOURCE_INDEX)
@@ -100,6 +101,7 @@ def on_tick(context, md, source, rcv_time):
         context.md_num += 1
         #print context.md_num,
         if context.md_num < context.signal.look_back + 2:
+            print(context.md_num)
             return
         #============ prepare data ============
         tick_price = np.array(context.signal.TickPrice)
