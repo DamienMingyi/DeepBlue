@@ -33,7 +33,7 @@ def get_next_nano(time_str):
     new_time = cur_time.replace(hour=parse_time.hour, minute=parse_time.minute, second=parse_time.second)
     if new_time < cur_time:
         new_time += datetime.timedelta(days=1)
-    return long(time.mktime(new_time.timetuple()) * 1e9)
+    return int(time.mktime(new_time.timetuple()) * 1e9)
 
 help_art = '''\
 .......................................................................
@@ -102,16 +102,16 @@ context_usage = \
          'register bar market data with specified interval',
          (None, [('int', 'source'), ('int', 'min_interval'), ('str', 'start_time eg:\"09:30:00\"'), ('str', 'end_time eg:\"11:30:00\"')])),
         # callback
-        ('insert_func_at', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(long(x), y),
+        ('insert_func_at', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(int(x), y),
          'insert callback function with nano time',
          (None, [('long', 'nano'), ('func', 'function')])),
-        ('insert_func_after', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(long(strategy.get_strategy_util().get_nano() + x * 1e9), y),
+        ('insert_func_after', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(int(strategy.get_strategy_util().get_nano() + x * 1e9), y),
          'insert callback function after seconds',
          (None, [('int', 'seconds'), ('func', 'function')])),
-        ('insert_func_at_c', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(long(x), partial(y, context)),
+        ('insert_func_at_c', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(int(x), partial(y, context)),
          'insert callback function with nano time with context as the first parameter',
          (None, [('long', 'nano'), ('func', 'function')])),
-        ('insert_func_after_c', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(long(strategy.get_strategy_util().get_nano() + x * 1e9), partial(y, context)),
+        ('insert_func_after_c', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(int(strategy.get_strategy_util().get_nano() + x * 1e9), partial(y, context)),
          'insert callback function after seconds with context as the first parameter',
          (None, [('int', 'seconds'), ('func', 'function')])),
         ('insert_func_at_next', lambda strategy: lambda x, y: strategy.get_strategy_util().insert_callback(get_next_nano(x), y),
@@ -158,18 +158,18 @@ override_methods = [
                        ('bars', 'dict', 'ticker(str) -> LFBarMarketDataField(bar structure)'),
                        ('min_interval', 'int', 'minute interval. eg: this is 5min bar if min_interval=5'),
                        ('source', 'int', SOURCE_COMMENT),
-                       ('rcv_time', 'long', 'time of bar generated.')]),
+                       ('rcv_time', 'int', 'time of bar generated.')]),
      'callback when bar data received', False),
     ('on_tick', (None, [('context', 'context object', CONTEXT_COMMENT),
                         ('market_data', 'LFMarketDataField', 'market tick data'),
                         ('source', 'int', SOURCE_COMMENT),
-                        ('rcv_time', 'long', 'time of tick received.')]),
+                        ('rcv_time', 'int', 'time of tick received.')]),
      'callback when tick data received', False),
     ('on_pos', (None, [('context', 'context object', CONTEXT_COMMENT),
                        ('pos_handler', 'PosHandler', 'class of position getting and setting'),
                        ('request_id', 'int', 'request_id of req_pos, -1 if is initial callback when login td'),
                        ('source', 'int', SOURCE_COMMENT),
-                       ('rcv_time', 'long', 'time of position information received.')]),
+                       ('rcv_time', 'int', 'time of position information received.')]),
      'callback when (1) login td, td may return initial position with request_id=-1' \
      ' (2) context.req_pos is called \n(ATTENTION! here is the account\'s position instead of single strategy)', False),
     ('on_error', (None, [('context', 'context object', CONTEXT_COMMENT),
@@ -177,22 +177,22 @@ override_methods = [
                          ('error_msg', 'str', 'message of error faced'),
                          ('request_id', 'int', 'id of request, will be order_id if order inserted failed.'),
                          ('source', 'int', SOURCE_COMMENT),
-                         ('rcv_time', 'long', 'time of error received.')]),
+                         ('rcv_time', 'int', 'time of error received.')]),
      'callback when request faces error', False),
     ('on_rtn_order', (None, [('context', 'context object', CONTEXT_COMMENT),
                              ('rtn_order', 'LFRtnOrderField', 'return-order data'),
                              ('order_id', 'int', 'request id of order'),
                              ('source', 'int', SOURCE_COMMENT),
-                             ('rcv_time', 'long', 'time of rtn_order received.')]),
+                             ('rcv_time', 'int', 'time of rtn_order received.')]),
      'callback when updates of any order requested by current strategy is received', False),
     ('on_rtn_trade', (None, [('context', 'context object', CONTEXT_COMMENT),
                              ('rtn_trade', 'LFRtnTradeField', 'return-trade data'),
                              ('order_id', 'int', 'request id of order'),
                              ('source', 'int', SOURCE_COMMENT),
-                             ('rcv_time', 'long', 'time of rtn_trade received.')]),
+                             ('rcv_time', 'int', 'time of rtn_trade received.')]),
      'callback when trades of any order requested by current strategy is received', False),
     ('on_switch_day', (None, [('context', 'context object', CONTEXT_COMMENT),
-                              ('rcv_time', 'long', 'time of switch_day signal received.')]),
+                              ('rcv_time', 'int', 'time of switch_day signal received.')]),
      'callback when a trading day is switched', False),
 ]
 class_details = [

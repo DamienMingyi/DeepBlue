@@ -8,6 +8,8 @@ mkdir -p /opt/kungfu/log \
 /opt/kungfu/journal/system \
 /opt/kungfu/journal/user \
 /opt/kungfu/journal/strategy \
+/opt/kungfu/log/strategy \
+/opt/kungfu/log/pid \
 /opt/kungfu/socket \
 /opt/kungfu/runtime \
 /opt/kungfu/log/supervisor \
