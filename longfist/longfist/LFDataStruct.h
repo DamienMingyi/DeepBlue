@@ -235,6 +235,8 @@ struct LFBarMarketDataField
 	double   	High;                  //高
 	double   	Volume;                //区间交易量
 	double   	StartVolume;           //初始总交易量
+	double      Turnover;              // add by daiab
+	double      StartTurnover;         // add by daiab
 };
 
 struct LFQryPositionField

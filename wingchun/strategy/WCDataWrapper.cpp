@@ -142,6 +142,7 @@ void WCDataWrapper::process_bar(const LFMarketDataField* data, short source, lon
         BarMdMap& barMap = interval.second;
         string ticker = data->InstrumentID;
         auto iter = barMap.find(ticker);
+        // std::cout << "daianbo debug (Volume) " << data->Volume << " (Turnover) " << data->Turnover << std::endl;
         if (iter == barMap.end())
         {   // this is the first bar data
             LFBarMarketDataField& bar = barMap[ticker];
@@ -159,6 +160,8 @@ void WCDataWrapper::process_bar(const LFMarketDataField* data, short source, lon
             bar.High = data->LastPrice;
             bar.Volume = 0;
             bar.StartVolume = data->Volume;
+            bar.Turnover = 0;
+            bar.StartTurnover = data->Turnover;
         }
         else
         {
@@ -169,6 +172,7 @@ void WCDataWrapper::process_bar(const LFMarketDataField* data, short source, lon
             bar.Low = (bar.Low > data->LastPrice) ? data->LastPrice : bar.Low;
             bar.High = (bar.High < data->LastPrice) ? data->LastPrice : bar.High;
             bar.Volume = data->Volume - bar.StartVolume;
+            bar.Turnover = data->Turnover - bar.StartTurnover;
         }
     }
 }

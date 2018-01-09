@@ -226,6 +226,8 @@ class LFBarMarketDataField(Structure):
         ("High", c_double),	# 高 
         ("Volume", c_double),	# 区间交易量 
         ("StartVolume", c_double),	# 初始总交易量 
+        ("Turnover", c_double),	# 区间总交易额
+        ("StartTurnover", c_double),	# 初始总交易额
         ]
 
 class LFQryPositionField(Structure):
@@ -680,6 +682,8 @@ DataFieldMap = {
 		'InstrumentID': 'c31',
 		'Volume': 'd',
 		'StartVolume': 'd',
+		'Turnover': 'd',
+		'StartTurnover': 'd',
 		'EndUpdateMillisec': 'i',
 		'High': 'd',
 		'TradingDay': 'c9',

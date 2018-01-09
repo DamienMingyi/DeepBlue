@@ -222,7 +222,9 @@ namespace LF_UTIL_PRINTER_CTP
 	 << std::setw(20) << "High:" << std::setw(6) << "(d)" << " " << ptr->High << std::endl \
 	 << std::setw(20) << "Volume:" << std::setw(6) << "(d)" << " " << ptr->Volume << std::endl \
 	 << std::setw(20) << "StartVolume:" << std::setw(6) << "(d)" << " " << ptr->StartVolume << std::endl \
-	
+	 << std::setw(20) << "Turnover:" << std::setw(6) << "(d)" << " " << ptr->Turnover << std::endl \
+	 << std::setw(20) << "StartTurnover:" << std::setw(6) << "(d)" << " " << ptr->StartTurnover << std::endl \
+
 #define PRINT_QRY_POS(ptr) ""\
 	 << std::setw(20) << "BrokerID:" << std::setw(6) << "(c11)" << " " << ptr->BrokerID << std::endl \
 	 << std::setw(20) << "InvestorID:" << std::setw(6) << "(c19)" << " " << ptr->InvestorID << std::endl \
